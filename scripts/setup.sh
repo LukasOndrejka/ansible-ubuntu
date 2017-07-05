@@ -18,6 +18,7 @@ else
     echo "Ansible already installed"
 fi
 
+cd ~
 mkdir $DIR
 cd $DIR
 git clone $REPOSITORY
