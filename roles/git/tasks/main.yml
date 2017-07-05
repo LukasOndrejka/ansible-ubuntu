@@ -1,0 +1,7 @@
+---
+
+- name: "Install git {{ home }}"
+  apt: pkg=git state=latest update_cache=yes cache_valid_time={{ aptcachetime }}
+
+- name: Configure git globals
+  template: src="gitconfig.j2" dest="{{ home }}/.gitconfig" group="{{ user }}" force=no
