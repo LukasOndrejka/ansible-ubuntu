@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR = ~/.ansible
+DIR=`~/.ansible`
 REPOSITORY = "https://github.com/lukasondrejka/ansible-ubuntu.git"
 
 sudo apt-get install -y git python python-dev
