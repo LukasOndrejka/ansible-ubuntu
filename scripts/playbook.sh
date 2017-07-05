@@ -1,5 +1,6 @@
 #!/bin/bash
+
 cat \
-  <(echo -e "---\n\n- name: Ansible playbook\n  hosts: localhost\n  roles:") \
+  <(cat ../playbook_template.yml) \
   <(for file in ../roles/*; do echo -e "    # - "${file##*/}; done) \
   > ../playbook.yml
