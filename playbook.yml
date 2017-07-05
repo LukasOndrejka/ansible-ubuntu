@@ -1,7 +1,1 @@
-
----
-
-- name: Ubuntu playbook
-  hosts: localhost
-  roles:
-   - git
+# For generate playbook.yml use playbook.sh (in scripts).
