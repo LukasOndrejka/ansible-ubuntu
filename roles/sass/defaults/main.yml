@@ -1,0 +1,7 @@
+---
+  
+sass:
+  libssas_version: 3.3.2
+  libsass_path: "/usr/local/lib/libsass"
+  sassc_version: 3.3.0
+  sassc_path: "/usr/local/lib/libsass/sassc"
