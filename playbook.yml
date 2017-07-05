@@ -1,0 +1,7 @@
+
+---
+
+- name: Ubuntu playbook
+  hosts: localhost
+  roles:
+   - git
