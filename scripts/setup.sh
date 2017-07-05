@@ -25,7 +25,7 @@ git clone $REPOSITORY
 
 cd $DIR/ansible-ubuntu/scripts
 chmod u+x *.sh
-bash playbook.sh group_vars.sh
+bash playbook.sh vars.sh
 
 echo ""
 echo "Customize the playbook (ansible-desktop.yml) and the vars (group_vars/all.yml) to suit your needs, then run ansible with:"
