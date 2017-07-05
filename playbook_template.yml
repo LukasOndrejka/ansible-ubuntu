@@ -1,0 +1,10 @@
+---
+
+- name: Ansible playbook
+  hosts: localhost
+  become: true
+  become_method: sudo
+  vars:
+    user: "{{ lookup('env','USER') }}"
+    home: "{{ lookup('env','HOME') }}"
+  roles:
