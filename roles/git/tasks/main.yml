@@ -1,6 +1,6 @@
 ---
 
-- name: "Install git {{ home }}"
+- name: Install git
   apt: pkg=git state=latest update_cache=yes cache_valid_time={{ aptcachetime }}
 
 - name: Configure git globals
