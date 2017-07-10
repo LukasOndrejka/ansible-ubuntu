@@ -1,0 +1,57 @@
+[submodule "roles/lang"]
+	path = roles/lang
+	url = git@github.com:jdauphant/ansible-role-lang.git
+[submodule "roles/packaging"]
+	path = roles/packaging
+	url = git@github.com:jdauphant/ansible-role-packaging.git
+[submodule "roles/sudo"]
+	path = roles/sudo
+	url = git@github.com:jdauphant/ansible-role-sudo.git
+[submodule "roles/vagrant"]
+	path = roles/vagrant
+	url = git@github.com:jdauphant/ansible-role-vagrant.git
+[submodule "roles/spotify"]
+	path = roles/spotify
+	url = git@github.com:jdauphant/ansible-role-spotify.git
+[submodule "roles/ufw"]
+	path = roles/ufw
+	url = git@github.com:jdauphant/ansible-role-ufw.git
+[submodule "roles/ansible"]
+	path = roles/ansible
+	url = git@github.com:jdauphant/ansible-role-ansible.git
+[submodule "roles/timezone"]
+	path = roles/timezone
+	url = git@github.com:jdauphant/ansible-role-timezone.git
+[submodule "roles/brother"]
+	path = roles/brother
+	url = git@github.com:jdauphant/ansible-role-brother.git
+[submodule "roles/dropbox"]
+	path = roles/dropbox
+	url = git@github.com:jdauphant/ansible-role-dropbox.git
+[submodule "roles/users"]
+	path = roles/users
+	url = git@github.com:jdauphant/ansible-role-users.git
+[submodule "roles/hangout"]
+	path = roles/hangout
+	url = git@github.com:jdauphant/ansible-role-hangout.git
+[submodule "roles/dell-printers"]
+	path = roles/dell-printers
+	url = git@github.com:jdauphant/ansible-role-dell-printers.git
+[submodule "roles/vmware-workstation"]
+	path = roles/vmware-workstation
+	url = git@github.com:jdauphant/ansible-role-vmware-workstation.git
+[submodule "roles/docker"]
+	path = roles/docker
+	url = git@github.com:jdauphant/ansible-role-docker.git
+[submodule "roles/scala"]
+	path = roles/scala
+	url = git@github.com:jdauphant/ansible-role-scala.git
+[submodule "roles/intellij"]
+	path = roles/intellij
+	url = git@github.com:jdauphant/ansible-role-intellij.git
+[submodule "roles/slack"]
+	path = roles/slack
+	url = git@github.com:jdauphant/ansible-role-slack.git
+[submodule "roles/visual-studio-code"]
+	path = roles/visual-studio-code
+	url = git@github.com:jdauphant/ansible-role-visual-studio-code.git
