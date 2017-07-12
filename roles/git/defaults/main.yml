@@ -3,3 +3,4 @@
 git:
   user_name: "git"
   user_email: "git@example.com"
+  core_editor: "vim"
