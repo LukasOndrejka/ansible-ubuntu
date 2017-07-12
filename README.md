@@ -1,5 +1,6 @@
 # Ansible Ubuntu setup
-Ansible roles to setup Ubuntu desktop and Ubuntu server (14.04 and 16.04). This playbook is focused on quickly deploying a "ready to use" dev machine.
+Ansible roles to setup Ubuntu desktop and Ubuntu server (14.04 and 16.04).<br>
+This playbook is focused on quickly deploying a "ready to use" dev machine.
 
 ## Requirements
 - Git (automatically installed with the provided setup.sh script)
@@ -18,7 +19,7 @@ curl -L https://raw.githubusercontent.com/lukasondrejka/ansible-ubuntu/master/sc
 Repository will download to `~/.ansible/ansible-ubuntu`.
 
 ##### 2. Customize the playbook (`playbook.yml`) and  vars (`group_vars/all.yml`) to suit your needs
-Every roles are disabled by default. For enable role remove hashtag.
+Every roles are disabled by default. For enable role remove hashtag.<br>
 Example:
 ```
 roles:
@@ -33,6 +34,3 @@ Example of custom playbook: [lukasondrejka/my-ansible-playbook](https://github.c
 ```
 ansible-playbook playbook.yml
 ```
-
-## Roles included
-You can see all roles in roles folder.
