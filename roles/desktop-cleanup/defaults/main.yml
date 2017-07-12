@@ -1,14 +1,8 @@
 ---
 
-
-git:
-  user_name: "git"
-  user_email: "git@example.com"
-  core_editor: "vim"
-
 desktop_cleanup:
-  xdg_create: true
-  xdg_remove: true
+  xdg_create: false
+  xdg_remove: false
   xdg_directories:
     xdg_desktop: "Plocha"
     xdg_downloads: "Stiahnuté"

@@ -1,1 +1,13 @@
-# For generate playbook use: cd scripts && bash playbook.sh && cd ..
+---
+
+- name: Ansible playbook
+  hosts: localhost
+  become: false
+  become_method: sudo
+  vars:
+    cache_valid_time: 3600
+    user: "{{ lookup('env','USER') }}"
+    home: "{{ lookup('env','HOME') }}"
+  roles:
+    # - git
+     - desktop-cleanup
