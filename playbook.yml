@@ -1,13 +1,1 @@
----
-
-- name: Ansible playbook
-  hosts: localhost
-  become: false
-  become_method: sudo
-  vars:
-    apt_cache_time: 3600
-    user: "{{ lookup('env','USER') }}"
-    home: "{{ lookup('env','HOME') }}"
-    state: "latest"
-  roles:
-     - git
+# For generate playbook use: cd scripts && bash playbook.sh && cd ..
