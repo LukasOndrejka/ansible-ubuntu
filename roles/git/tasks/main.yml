@@ -1,7 +1,24 @@
 ---
 
-- name: Install git
-  apt: pkg=git state=latest update_cache=yes cache_valid_time={{ aptcachetime }}
+- name: Install git and git-svn
+  apt: pkg=git,git-svn state={{ state }} update_cache=yes cache_valid_time={{ apt_cache_time }}
+  become: true
 
-- name: Configure git globals
-  template: src="gitconfig.j2" dest="{{ home }}/.gitconfig" group="{{ user }}" force=no
+- name: Set user.email
+  git_config:
+    name: user.email
+    scope: global
+    value: "{{ git.user_email }}"
+
+- name: Set user.name
+  git_config:
+    name: user.name
+    scope: global
+    value: "{{ git.user_name }}"
+
+- name: Set core.editor
+  git_config:
+    name: core.editor
+    scope: global
+    value: "{{ git.core_editor }}"
+

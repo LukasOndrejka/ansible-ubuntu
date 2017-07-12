@@ -1,1 +1,8 @@
-# For generate vars use: cd scripts && bash vars.sh && cd ..
+---
+
+git:
+  set_git: true
+  user_name: "lukasondrejka"
+  user_email: "lukas.ondrejka1@gmail.com"
+  core_editor: "vim"
+
