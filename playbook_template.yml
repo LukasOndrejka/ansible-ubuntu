@@ -1,14 +1,31 @@
 ---
 # This is template of playbook
+
+# Name of ansible playbook
 - name: Ansible playbook
+  
+# Hostname of pc where you want run roles
+# For this PC use localhost.
   hosts: localhost
+  
+# Include vars
+  vars_files: group_vars/all.yml
+
+# Elementary vars
   vars:
-    aptcachetime: 3600
+    aptcachetime: 3600  # default time is 3600
     user: "{{ lookup('env','USER') }}"
-    home: "{{ lookup('env','HOME') }}"
-  become: true
+    home: "{{ lookup('env','HOME') }}" 
+    
+# Become
+  become: false
   become_method: sudo
   become_user: "{{ user }}"
+
+  ignore_errors: false
+  
+# Roles
   roles:
     # Run playbook.sh in the scripts and roles will be completed automatically to playbook.yml.
     # Use command: cd scripts && bash playbook.sh && cd ..
+
