@@ -1,0 +1,18 @@
+---
+
+chromium:
+  set_default: false
+  policy: false
+  extensions: # https://chrome.google.com/webstore/category/extensions
+     - cfhdojbkjhnklbpkdaibdccddilifddb # Adblock Plus
+     - cjpalhdlnbpafiamejdnhcphjbkeiagm # ublock
+    # - ajpgkpeckebdhofmmjfgcjjiiejpodla # Xmarks Bookmark Sync
+     - bcjindcccaagfpapjjmafapmmgkkhgoa # JSON Formatter
+    # - miefikpgahefdbcgoiicnmpbeeomffld # Blackfire Companion
+    # - fjnbnpbmkenffdnngjfgmeleoegfcffe # Stylish
+    # - jbbplnpkjmmeebjpijfedlgcdilocofh # wave-evaluation-tool
+    # - idgpnmonknjnojddfkpgkljpfnnfcklj # ModHeader
+    # - jgbbilmfbammlbbhmmgaagdkbkepnijn # Cookie Inspector
+    # - dapjbgnjinbpoindlpdmhochffioedbn # builtwith-technology-prof
+    # - deoaddaobnieaecelinfdllcgdehimih # kimono
+    # - fhbjgbiflinjbdggehcddcbncdddomop # postman
