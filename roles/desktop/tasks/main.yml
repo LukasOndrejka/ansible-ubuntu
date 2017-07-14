@@ -1,0 +1,12 @@
+---
+
+- include: common.yml
+  become: true
+
+- include: cleanup.yml
+
+- include: desktop-preferences-unity.yml
+  when: desktop.preferences_unity
+
+- include: autostart.yml
+  become: true

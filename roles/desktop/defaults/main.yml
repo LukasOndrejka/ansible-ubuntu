@@ -1,0 +1,42 @@
+---
+
+desktop:
+  preferences_unity: false
+  common:
+    disable_guest_session: false
+    common_desktop_packages:
+      - bleachbit
+      - easytag # audio files metadata management
+      - byzanz # screen recording
+      - geany
+      - libnotify-bin
+      - inotify-tools
+      - meld # Diff / merge tool
+      - cifs-utils
+      - mpv
+      - pinta # light paint.net equivalent
+      - rhythmbox
+      - rxvt-unicode-256color
+      - sox # to play sounds
+      - tilda # lighter than guake
+      - ubuntu-restricted-extras # MP3, Microsoft fonts, Flash plugin, LAME and DVD playback
+      - unetbootin # create bootable USB drives
+      - vlc
+      - wmctrl # to control windows
+      - xclip # to manipulate the clipboard
+      - xdotool # to control windows
+  autostart:
+    add: []
+    remove: []
+  cleanup:
+    xdg_create: false
+    xdg_remove: false
+    xdg_directories:
+      xdg_desktop: "Plocha"
+      xdg_downloads: "Stiahnuté"
+      xdg_templates: "Šablóny"
+      xdg_public: "Verejné"
+      xdg_documents: "Dokumenty"
+      xdg_music: "Hudba"
+      xdg_pictures: "Obrázky"
+      xdg_videos: "Video"

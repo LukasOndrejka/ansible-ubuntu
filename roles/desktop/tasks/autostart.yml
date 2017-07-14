@@ -1,0 +1,38 @@
+---
+
+- name: Unhide all startup applications
+  lineinfile:
+    dest: "{{ item }}"
+    regexp: '^NoDisplay='
+    line: 'NoDisplay=false'
+    state: present
+  with_fileglob:
+    - /etc/xdg/autostart/*
+
+- name: Create startup application directory
+  file:
+    path: "{{ home }}/.config/autostart"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: Add new startup entries
+  template: src=desktop.j2 dest="{{ home }}/.config/autostart/{{ item.name | lower }}.desktop" owner="{{ user }}" group="{{ user }}"
+  with_items: "{{ desktop.autostart.add }}"
+
+- name: Copy startup applications
+  copy:
+    src: "/etc/xdg/autostart/{{ item }}"
+    dest: "{{ home }}/.config/autostart/{{ item }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    force: no
+  with_items: "{{ desktop.autostart.remove }}"
+
+- name: Disable startup applications
+  lineinfile:
+    dest: "{{ home }}/.config/autostart/{{ item }}"
+    regexp: '^X-GNOME-Autostart-enabled='
+    line: 'X-GNOME-Autostart-enabled=false'
+    state: present
+  with_items: "{{ desktop.autostart.remove }}"

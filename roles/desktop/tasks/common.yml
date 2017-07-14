@@ -1,0 +1,22 @@
+---
+
+- name: Install common desktop packages
+  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time={{ cache_valid_time }}
+  with_items: "{{ desktop.common.common_desktop_packages }}"
+
+- name: Install common desktop packages if Ubuntu 16.04
+  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time={{ cache_valid_time }}
+  with_items:
+    - fonts-hack-ttf
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '16.04'
+
+- name: Block Ubuntu product search in system host file
+  lineinfile: dest=/etc/hosts regexp="^127\.0\.0\.1   productsearch.ubuntu.com$" line="127.0.0.1   productsearch.ubuntu.com" state=present
+
+- name: Ensure that lightdm configuration directory exists
+  file: path=/etc/lightdm/lightdm.conf.d state=directory
+  when: desktop.common.disable_guest_session
+
+- name: Disable guest session in lightdm
+  copy: src="50-no-guest.conf" dest="/etc/lightdm/lightdm.conf.d/50-no-guest.conf" force=no
+  when: desktop.common.disable_guest_session
