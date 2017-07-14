@@ -1,0 +1,9 @@
+---
+
+- name: Generate locales
+  command: locale-gen
+  become: true
+
+- name: Update TimeZone data
+  command: dpkg-reconfigure --frontend noninteractive tzdata
+  become: true
