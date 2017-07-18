@@ -2,20 +2,15 @@
 
 - name: Install ZSH with Aptitude
   apt: pkg=zsh state=latest update_cache=yes cache_valid_time={{ cache_valid_time }}
-  become: true
 
 - name: Make ZSH default shell for user root
   user: name=root shell=/bin/zsh
-  become: true
 
 - name: Copy default ZSH config for user root
   copy: src="zshrc" dest="/root/.zshrc" owner="root" group="root" force=yes
-  become: true
 
 - name: "Make ZSH default shell for user {{ user }}"
   user: name={{ user }} shell=/bin/zsh
-  become: true
 
 - name: "Copy default ZSH config for user {{ lukas }}"
   copy: src="zshrc" dest="{{ home }}/.zshrc" owner="{{ user }}" group="{{ user }}" force=no
-  become: true
