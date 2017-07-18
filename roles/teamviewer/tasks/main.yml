@@ -13,7 +13,6 @@
     - libxinerama1
     - libxrandr2
     - libxtst6
-  become: true
 
 - name: Download TeamViewer
   get_url: url="http://download.teamviewer.com/download/teamviewer_i386.deb" dest="/tmp/download-teamviewer-latest.deb"
@@ -22,7 +21,6 @@
 - name: Install TeamViewer
   apt: deb="/tmp/download-teamviewer-latest.deb"
   when: teamviewer_check_deb.rc == 1
-  become: true
 
 - name: Clean TeamViewer deb file
   file: path=/tmp/download-teamviewer-latest.deb state=absent
