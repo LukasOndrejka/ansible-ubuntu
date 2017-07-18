@@ -2,20 +2,22 @@
 
 - name: Add sublime repository
   apt_repository: repo="ppa:webupd8team/sublime-text-3" state=present
-  become: true
 
 - name: Install latest sublime package
   apt: pkg="sublime-text-installer" state=latest update_cache=yes cache_valid_time=0
-  become: true
 
 - name: Prepare sublime directories (1/2)
   file: path="{{ home }}/.config/sublime-text-3/Installed Packages" state=directory owner="{{ user }}" group="{{ user }}"
-
+  become: false
+  
 - name: Prepare sublime directories (2/2)
   file: path="{{ home }}/.config/sublime-text-3/Packages/User" state=directory owner="{{ user }}" group="{{ user }}"
-
+  become: false
+  
 - name: Install Package Control for sublime
   get_url: url="https://packagecontrol.io/Package%20Control.sublime-package" dest="{{ home }}/.config/sublime-text-3/Installed Packages/Package Control.sublime-package"
-
+  become: false
+  
 - name: Copy Package Control settings template for auto-install (REMEMBER TO RUN DOTFILES SYMLINKS FOR REAL AUTO INSTALL PACKAGES)
   copy: src="Package Control.sublime-settings" dest="{{ home }}/.config/sublime-text-3/Packages/User/Package Control.sublime-settings" owner="{{ user }}" group="{{ user }}"
+  become: false
