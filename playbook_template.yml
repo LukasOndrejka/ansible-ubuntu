@@ -18,7 +18,7 @@
     home: "{{ lookup('env','HOME') }}" 
     
 # Become
-  become: false
+  become: true
   become_method: sudo
   become_user: "{{ user }}"
 
