@@ -12,5 +12,5 @@
 - name: "Make ZSH default shell for user {{ user }}"
   user: name={{ user }} shell=/bin/zsh
 
-- name: "Copy default ZSH config for user {{ lukas }}"
+- name: "Copy default ZSH config for user {{ user }}"
   copy: src="zshrc" dest="{{ home }}/.zshrc" owner="{{ user }}" group="{{ user }}" force=no
