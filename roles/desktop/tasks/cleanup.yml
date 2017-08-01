@@ -68,26 +68,26 @@
   copy: src={{ home }}/{{ item.src }}/ dest={{ home }}/{{ item.dest }} owner={{ user }} group={{ user }}
   ignore_errors: true
   with_items:
-    - { src: '{{ desktop_cleanup.xdg_directories.xdg_desktop }}', dest: 'Desktop' }
-    - { src: '{{ desktop_cleanup.xdg_directories.xdg_downloads }}', dest: 'Downloads' }
-    - { src: '{{ desktop_cleanup.xdg_directories.xdg_templates }}', dest: 'Templates' }
-    - { src: '{{ desktop_cleanup.xdg_directories.xdg_public }}', dest: 'Public' }
-    - { src: '{{ desktop_cleanup.xdg_directories.xdg_documents }}', dest: 'Documents' }
-    - { src: '{{ desktop_cleanup.xdg_directories.xdg_music }}', dest: 'Music' }
-    - { src: '{{ desktop_cleanup.xdg_directories.xdg_pictures }}', dest: 'Pictures' }
-    - { src: '{{ desktop_cleanup.xdg_directories.xdg_videos }}', dest: 'Videos' }
+    - { src: '{{ desktop.cleanup.xdg_directories.xdg_desktop }}', dest: 'Desktop' }
+    - { src: '{{ desktop.cleanup.xdg_directories.xdg_downloads }}', dest: 'Downloads' }
+    - { src: '{{ desktop.cleanup.xdg_directories.xdg_templates }}', dest: 'Templates' }
+    - { src: '{{ desktop.cleanup.xdg_directories.xdg_public }}', dest: 'Public' }
+    - { src: '{{ desktop.cleanup.xdg_directories.xdg_documents }}', dest: 'Documents' }
+    - { src: '{{ desktop.cleanup.xdg_directories.xdg_music }}', dest: 'Music' }
+    - { src: '{{ desktop.cleanup.xdg_directories.xdg_pictures }}', dest: 'Pictures' }
+    - { src: '{{ desktop.cleanup.xdg_directories.xdg_videos }}', dest: 'Videos' }
 
 - name: Remove old XDG directories
   file: path="{{ home }}/{{ item }}" force=yes state=absent
   with_items:
-    - "{{ desktop_cleanup.xdg_directories.xdg_desktop }}"
-    - "{{ desktop_cleanup.xdg_directories.xdg_downloads }}"
-    - "{{ desktop_cleanup.xdg_directories.xdg_templates }}"
-    - "{{ desktop_cleanup.xdg_directories.xdg_public }}"
-    - "{{ desktop_cleanup.xdg_directories.xdg_documents }}"
-    - "{{ desktop_cleanup.xdg_directories.xdg_music }}"
-    - "{{ desktop_cleanup.xdg_directories.xdg_pictures }}"
-    - "{{ desktop_cleanup.xdg_directories.xdg_videos }}"
+    - "{{ desktop.cleanup.xdg_directories.xdg_desktop }}"
+    - "{{ desktop.cleanup.xdg_directories.xdg_downloads }}"
+    - "{{ desktop.cleanup.xdg_directories.xdg_templates }}"
+    - "{{ desktop.cleanup.xdg_directories.xdg_public }}"
+    - "{{ desktop.cleanup.xdg_directories.xdg_documents }}"
+    - "{{ desktop.cleanup.xdg_directories.xdg_music }}"
+    - "{{ desktop.cleanup.xdg_directories.xdg_pictures }}"
+    - "{{ desktop.cleanup.xdg_directories.xdg_videos }}"
 
 - name: Update user-dirs.dirs (config file)
   copy: src="user-dirs.dirs" dest="{{ home }}/.config/user-dirs.dirs" force=yes
