@@ -1,0 +1,8 @@
+---
+
+apache2_php:
+  version: "7.0"
+vhosts:
+  - template: standard
+    vhost: "localhost"
+    path: "{{ home }}/projects/www"
