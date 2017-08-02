@@ -25,22 +25,22 @@
     - Pictures
     - Videos
 
-- stat: path={{ home }}/{{ item.path }}
-  register: "{{ item.dest }}"
-  with_items:
-    - { path: '{{ desktop.cleanup.xdg_directories.xdg_desktop }}', dest: 'Desktop' }
-    - { path: '{{ desktop.cleanup.xdg_directories.xdg_downloads }}', dest: 'Downloads' }
-    - { path: '{{ desktop.cleanup.xdg_directories.xdg_templates }}', dest: 'Templates' }
-    - { path: '{{ desktop.cleanup.xdg_directories.xdg_public }}', dest: 'Public' }
-    - { path: '{{ desktop.cleanup.xdg_directories.xdg_documents }}', dest: 'Documents' }
-    - { path: '{{ desktop.cleanup.xdg_directories.xdg_music }}', dest: 'Music' }
-    - { path: '{{ desktop.cleanup.xdg_directories.xdg_pictures }}', dest: 'Pictures' }
-    - { path: '{{ desktop.cleanup.xdg_directories.xdg_videos }}', dest: 'Videos' }
+# - stat: path={{ home }}/{{ item.path }}
+#   register: "{{ item.dest }}"
+#   with_items:
+#     - { path: '{{ desktop.cleanup.xdg_directories.xdg_desktop }}', dest: 'Desktop' }
+#     - { path: '{{ desktop.cleanup.xdg_directories.xdg_downloads }}', dest: 'Downloads' }
+#     - { path: '{{ desktop.cleanup.xdg_directories.xdg_templates }}', dest: 'Templates' }
+#     - { path: '{{ desktop.cleanup.xdg_directories.xdg_public }}', dest: 'Public' }
+#     - { path: '{{ desktop.cleanup.xdg_directories.xdg_documents }}', dest: 'Documents' }
+#     - { path: '{{ desktop.cleanup.xdg_directories.xdg_music }}', dest: 'Music' }
+#     - { path: '{{ desktop.cleanup.xdg_directories.xdg_pictures }}', dest: 'Pictures' }
+#     - { path: '{{ desktop.cleanup.xdg_directories.xdg_videos }}', dest: 'Videos' }
 
 - name: Copy content of old XDG directories to new
   copy: src={{ home }}/{{ item.src }}/ dest={{ home }}/{{ item.dest }} owner={{ user }} group={{ user }}
   ignore_errors: true
-  when: "{{ item.dest }}.stat.exists == 1"
+  # when: "{{ item.dest }}.stat.exists == 1"
   with_items:
     - { src: '{{ desktop.cleanup.xdg_directories.xdg_desktop }}', dest: 'Desktop' }
     - { src: '{{ desktop.cleanup.xdg_directories.xdg_downloads }}', dest: 'Downloads' }
