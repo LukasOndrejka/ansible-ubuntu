@@ -30,6 +30,14 @@
     state: directory
   when: chromium.policy
 
+- name: "Create extensions folder (if it does not exist)"
+  file:
+   path: "/usr/share/chromium-browser/extensions/"
+   state: directory
+   mode: 0755
+   group: root
+   owner: root
+
 # See https://developer.chrome.com/extensions/external_extensions#preferences
 - name: Create Chromium JSON file to install extensions for all users
   template:

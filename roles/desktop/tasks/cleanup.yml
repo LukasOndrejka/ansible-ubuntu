@@ -37,4 +37,4 @@
     - gsettings set com.canonical.Unity.ApplicationsLens display-available-apps false
 
 - name: Remove exemples shortcut
-  file: path="{{ home }}/examples.desktop" force=yes state=absentsssssss
+  file: path="{{ home }}/examples.desktop" force=yes state=absent
