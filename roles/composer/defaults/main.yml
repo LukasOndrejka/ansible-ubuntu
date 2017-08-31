@@ -1,0 +1,26 @@
+---
+
+composer:
+  path: /usr/local/bin/composer
+  keep_updated: false
+  version: ''
+
+  # The directory where global packages will be installed.
+  home_path: "{{HOME}}/.composer"
+  home_owner: "{{ USER }}"
+  home_group: "{{ USER }}"
+
+  # A list of packages to install globally. See commented examples below for
+  # usage; the 'release' is optional, and defaults to '@stable'.
+  global_packages: []
+    # - { name: phpunit/phpunit, release: "4.7.x" }
+    # - { name: phpunit/phpunit, release: "@stable" }
+
+  add_to_path: true
+
+  # Add a project vendor/bin directory to the PATH
+  add_project_to_path: false
+  #project_path: /path/to/project/vendor/bin
+
+  # GitHub OAuth token (used to help overcome API rate limits).
+  github_oauth_token: ''
