@@ -1,0 +1,8 @@
+---
+
+- name: Add brackets repository (Webupd8team) (add-apt-repository ppa:webupd8team/brackets)
+  apt_repository: repo="ppa:webupd8team/brackets" state=present
+  
+- name: Install brackets
+  apt: name=brackets state=latest cache_valid_time=0
+
