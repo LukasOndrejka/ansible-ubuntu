@@ -1,0 +1,13 @@
+---
+
+- name: Add Etcher repository
+  apt_repository:
+    repo: deb https://dl.bintray.com/resin-io/debian stable etcher
+    state: present
+
+- name: Installing apt-key
+  apt_key: id=" 379CE192D401AB61" keyserver="hkp://pgp.mit.edu:80" state=present
+
+- name: Install Etcher
+  apt: pkg=etcher-electron state=present update_cache=yes
+  # shell: sudo apt-get update -y && sudo apt-get install etcher-electron -y
