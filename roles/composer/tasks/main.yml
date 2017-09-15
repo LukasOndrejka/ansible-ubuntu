@@ -1,5 +1,5 @@
 ---
-  
+
 - name: Set php_executable variable to a default if not defined.
   set_fact:
     php_executable: php
@@ -41,6 +41,11 @@
     owner: "{{ composer.home_owner }}"
     group: "{{ composer.home_group }}"
     state: directory
+
+- name: compile sources
+    environment:
+      PATH: "{{ lookup('env', 'PATH') }}:{{ lookup('env', 'HOME') }}/.composer/vendor/bin"
+
 
 - name: Add GitHub OAuth token for Composer (if configured).
   become: yes
