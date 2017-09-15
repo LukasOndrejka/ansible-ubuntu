@@ -6,7 +6,7 @@
     state: present
 
 - name: Installing apt-key
-  apt_key: id=" 379CE192D401AB61" keyserver="hkp://pgp.mit.edu:80" state=present
+  apt_key: id="379CE192D401AB61" keyserver="hkp://pgp.mit.edu:80" state=present
 
 - name: Install Etcher
   apt: pkg=etcher-electron state=present update_cache=yes
