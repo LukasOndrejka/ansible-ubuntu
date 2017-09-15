@@ -3,14 +3,43 @@
 - name: Install ZSH with Aptitude
   apt: pkg=zsh state=latest update_cache=yes cache_valid_time={{ cache_valid_time }}
 
-- name: Make ZSH default shell for user root
-  user: name=root shell=/bin/zsh
+- name: Make ZSH default shell
+  user: name="{{ user }}" shell=/bin/zsh
 
-- name: Copy default ZSH config for user root
-  copy: src="zshrc" dest="/root/.zshrc" owner="root" group="root" force=yes
+- name: Create OhMyZsh repository folder
+  file:
+    path: "{{ user }}/.dotfiles"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  when: zsh.oh_my_zsh.install
 
-- name: "Make ZSH default shell for user {{ user }}"
-  user: name={{ user }} shell=/bin/zsh
+- name: Clone OhMyZsh repository
+  git: repo=git://github.com/robbyrussell/oh-my-zsh.git dest="{{ home }}/.oh-my-zsh"
+  when: zsh.oh_my_zsh.install
 
-- name: "Copy default ZSH config for user {{ user }}"
-  copy: src="zshrc" dest="{{ home }}/.zshrc" owner="{{ user }}" group="{{ user }}" force=no
+- name: Install OhMyZsh
+  script: "{{ home }}/.oh-my-zsh/tools/install.sh"
+  when: zsh.oh_my_zsh.install
+
+- name: Create a new zsh configuration file
+  copy:
+    src: "{{ home }}/.oh-my-zsh/templates/zshrc.zsh-template"
+    dest: "{{ home }}/.zshrc"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+  when: zsh.oh_my_zsh.install
+
+- name: Set theme
+  lineinfile:
+    path: "{{ home }}/.zshrc"
+    regexp: '^ZSH_THEME='
+    line: 'ZSH_THEME="{{ zsh.oh_my_zsh.theme }}"'
+  when: zsh.oh_my_zsh.install
+
+- name: Set plugins
+  lineinfile:
+    path: "{{ home }}/.zshrc"
+    regexp: '^plugins='
+    line: 'plugins=({{ zsh.oh_my_zsh.plugins }})'
+  when: zsh.oh_my_zsh.install

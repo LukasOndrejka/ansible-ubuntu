@@ -1,0 +1,7 @@
+---
+
+  zsh:
+    oh_my_zsh:
+      install: true
+      theme: "robbyrussel"   # https://github.com/robbyrussell/oh-my-zsh/wiki/themes
+      plugins: "git"   # https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins
