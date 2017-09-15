@@ -1,0 +1,17 @@
+---
+
+- name: Add the PlayOnLinux APT key
+  apt_key: url=http://deb.playonlinux.com/public.gpg state=present
+
+- name: Configure the Wine PPA
+  apt_repository: repo="ppa:ubuntu-wine/ppa" state=present
+
+- name: Install Wine
+  apt: pkg=wine state=latest
+
+- name: Add PlayOnLinux repository
+  apt_repository: repo="ppa:noobslab/apps" state=present
+  # apt_repository: repo="deb http://deb.playonlinux.com/ precise main" state=present
+
+- name: Install PlayOnLinux
+  apt: pkg="playonlinux" state=present update_cache=yes cache_valid_time=0
